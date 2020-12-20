@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import '../models/products.dart';
+import 'product.dart';
 
 // changeNotifier is a Dart Method it give the access to notityListeners()
 class Products with ChangeNotifier {
