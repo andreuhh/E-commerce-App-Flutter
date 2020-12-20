@@ -20,9 +20,10 @@ class ProductItem extends StatelessWidget {
         fit: BoxFit.cover,
       ),
       footer: GridTileBar(
-        backgroundColor: Colors.black54,
+        backgroundColor: Colors.black87,
         leading: IconButton(
           icon: Icon(Icons.favorite),
+          color: Theme.of(context).accentColor,
           onPressed: () {},
         ),
         title: Text(
@@ -32,6 +33,7 @@ class ProductItem extends StatelessWidget {
         trailing: IconButton(
           icon: Icon(Icons.shopping_cart),
           onPressed: () {},
+          color: Theme.of(context).accentColor,
         ),
       ),
     );
