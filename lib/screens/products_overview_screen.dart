@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/products.dart';
-import '../widgets//product_item.dart';
+import '../widgets/product_item.dart';
 
 class ProductsOverviewScreen extends StatelessWidget {
   final List<Product> loadedProducts = [
@@ -53,7 +53,6 @@ class ProductsOverviewScreen extends StatelessWidget {
           loadedProducts[i].title,
           loadedProducts[i].imageUrl,
         ),
-        //imposto la griglia di colonne
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 3 / 2,
