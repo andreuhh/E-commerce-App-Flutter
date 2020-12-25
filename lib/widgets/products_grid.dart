@@ -8,7 +8,7 @@ class ProductsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<Products>(context);
-    final products = productsData.items;
+    final products = productsData.item;
     return GridView.builder(
       padding: const EdgeInsets.all(10.0),
       itemCount: products.length,
