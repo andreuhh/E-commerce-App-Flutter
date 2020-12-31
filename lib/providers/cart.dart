@@ -63,4 +63,10 @@ class Cart with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  // remoove element from chart after swipe
+  void removeItem(String productId) {
+    _items.remove(productId);
+    notifyListeners();
+  }
 }
