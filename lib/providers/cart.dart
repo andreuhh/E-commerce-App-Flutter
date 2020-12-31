@@ -69,4 +69,10 @@ class Cart with ChangeNotifier {
     _items.remove(productId);
     notifyListeners();
   }
+
+  // delete the elements in the chart
+  void clear() {
+    _items = {};
+    notifyListeners();
+  }
 }
