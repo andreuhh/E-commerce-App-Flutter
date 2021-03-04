@@ -93,7 +93,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
       return;
     }
     _form.currentState.save();
-    Provider.of<Products>(context, listen: false).addProduct(_editedProduct);
+    if (_editedProduct.id != null) {
+      Provider.of<Products>(context, listen: false)
+          .updateProduct(_editedProduct.id, _editedProduct);
+    } else {
+      Provider.of<Products>(context, listen: false).addProduct(_editedProduct);
+    }
+
     Navigator.of(context).pop();
   }
 
@@ -131,12 +137,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 },
                 onSaved: (value) {
                   _editedProduct = Product(
-                    title: value,
-                    price: _editedProduct.price,
-                    description: _editedProduct.description,
-                    imageUrl: _editedProduct.imageUrl,
-                    id: null,
-                  );
+                      title: value,
+                      price: _editedProduct.price,
+                      description: _editedProduct.description,
+                      imageUrl: _editedProduct.imageUrl,
+                      id: _editedProduct.id,
+                      isFavorite: _editedProduct.isFavorite);
                 },
               ),
               TextFormField(
@@ -162,12 +168,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 },
                 onSaved: (value) {
                   _editedProduct = Product(
-                    title: _editedProduct.title,
-                    price: double.parse(value),
-                    description: _editedProduct.description,
-                    imageUrl: _editedProduct.imageUrl,
-                    id: null,
-                  );
+                      title: _editedProduct.title,
+                      price: double.parse(value),
+                      description: _editedProduct.description,
+                      imageUrl: _editedProduct.imageUrl,
+                      id: _editedProduct.id,
+                      isFavorite: _editedProduct.isFavorite);
                 },
               ),
               TextFormField(
@@ -187,12 +193,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 },
                 onSaved: (value) {
                   _editedProduct = Product(
-                    title: _editedProduct.title,
-                    price: _editedProduct.price,
-                    description: value,
-                    imageUrl: _editedProduct.imageUrl,
-                    id: null,
-                  );
+                      title: _editedProduct.title,
+                      price: _editedProduct.price,
+                      description: value,
+                      imageUrl: _editedProduct.imageUrl,
+                      id: _editedProduct.id,
+                      isFavorite: _editedProduct.isFavorite);
                 },
               ),
               Row(
@@ -247,12 +253,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       },
                       onSaved: (value) {
                         _editedProduct = Product(
-                          title: _editedProduct.title,
-                          price: _editedProduct.price,
-                          description: _editedProduct.description,
-                          imageUrl: value,
-                          id: null,
-                        );
+                            title: _editedProduct.title,
+                            price: _editedProduct.price,
+                            description: _editedProduct.description,
+                            imageUrl: value,
+                            id: _editedProduct.id,
+                            isFavorite: _editedProduct.isFavorite);
                       },
                       // onEditingComplete: () {
                       //   setState(() {});
