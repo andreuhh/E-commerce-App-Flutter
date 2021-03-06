@@ -1,4 +1,6 @@
-import 'package:flutter/foundation.dart';
+import 'dart:convert'; //offers tools to convert data
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'product.dart';
 
 // changeNotifier is a Dart Method it give the access to notityListeners()
@@ -69,6 +71,18 @@ class Products with ChangeNotifier {
   //}
 
   void addProduct(Product product) {
+    const url =
+        'https://flutter-e-commerce-8ea1f-default-rtdb.firebaseio.com/products.json';
+    http.post(
+      url,
+      body: json.encode({
+        'title': product.title,
+        'description': product.description,
+        'price': product.price,
+        'imageUrl': product.imageUrl,
+        'isFavorite': product.isFavorite
+      }),
+    );
     final newProduct = Product(
       title: product.title,
       description: product.description,
