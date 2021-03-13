@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         ], //Serve come listeners, in questo modo verrà fatto il rebuild solo delle parti che vengono aggiornate
         child: Consumer<Auth>(
           builder: (ctx, auth, _) => MaterialApp(
-            title: 'MyShop',
+            title: 'Flutter Shop',
             theme: ThemeData(
               primarySwatch: Colors.purple,
               accentColor: Colors.deepOrange,

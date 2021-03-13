@@ -61,12 +61,12 @@ class AuthScreen extends StatelessWidget {
                         ],
                       ),
                       child: Text(
-                        'MyShop',
+                        'Flutter Shop',
                         style: TextStyle(
                           color: Theme.of(context).accentTextTheme.title.color,
-                          fontSize: 50,
-                          fontFamily: 'Anton',
-                          fontWeight: FontWeight.normal,
+                          fontSize: 36,
+                          fontFamily: 'Lato',
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
