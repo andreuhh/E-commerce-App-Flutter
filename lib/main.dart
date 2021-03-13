@@ -34,8 +34,11 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(
             create: (ctx) => Cart(),
           ),
-          ChangeNotifierProvider(
-            create: (ctx) => Orders(),
+          ChangeNotifierProxyProvider<Auth, Orders>(
+            update: (ctx, auth, previousOrder) => Orders(
+              auth.token,
+              previousOrder == null ? [] : previousOrder.orders,
+            ),
           ),
         ], //Serve come listeners, in questo modo verrà fatto il rebuild solo delle parti che vengono aggiornate
         child: Consumer<Auth>(
