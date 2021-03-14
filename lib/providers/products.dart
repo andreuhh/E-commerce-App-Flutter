@@ -76,9 +76,9 @@ class Products with ChangeNotifier {
 
   Future<void> fetchAndSetProducts([bool filterByUser = false]) async {
     final filterString =
-        filterByUser ? 'orderBy="creatorId"&equalTo="$userId' : '';
+        filterByUser ? 'orderBy="creatorId"&equalTo="$userId"' : '';
     var url =
-        'https://flutter-e-commerce-8ea1f-default-rtdb.firebaseio.com/products.json?auth=$authToken&"$filterString';
+        'https://flutter-e-commerce-8ea1f-default-rtdb.firebaseio.com/products.json?auth=$authToken&$filterString';
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
